@@ -92,8 +92,8 @@ require('lazy').setup({
   },
 
   { -- Autocompletion
-    'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    'hrsh7th/nvim-cmp',
   },
 
   -- Useful plugin to show you pending keybinds.
@@ -197,7 +197,8 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
-
+-- Make line numbers relative
+vim.o.relativenumber = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
@@ -492,6 +493,14 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Moveline plugin settings
+local moveline = require('moveline')
+vim.keymap.set('n', '<M-k>', moveline.up)
+vim.keymap.set('n', '<M-j>', moveline.down)
+vim.keymap.set('v', '<M-k>', moveline.block_up)
+vim.keymap.set('v', '<M-j>', moveline.block_down)
+
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
