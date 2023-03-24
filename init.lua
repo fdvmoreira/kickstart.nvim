@@ -197,8 +197,6 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
--- Make line numbers relative
-vim.o.relativenumber = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
@@ -493,6 +491,12 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+-- My Custom settings
+-- Make line numbers relative
+vim.o.relativenumber = true
+vim.o.tabstop = 2
+vim.o.sts = 2
+vim.o.sw = 2
 
 -- Moveline plugin settings
 local moveline = require('moveline')
@@ -501,6 +505,13 @@ vim.keymap.set('n', '<M-j>', moveline.down)
 vim.keymap.set('v', '<M-k>', moveline.block_up)
 vim.keymap.set('v', '<M-j>', moveline.block_down)
 
-
+-- NvimTree Toggle
+local function toggleNvimTree()
+  require('nvim-tree.api').tree.toggle({
+    focus = false,
+  })
+end
+vim.keymap.set('n', '<C-k><C-k>', toggleNvimTree)
+--
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
