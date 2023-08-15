@@ -499,11 +499,27 @@ vim.o.sts = 2
 vim.o.sw = 2
 
 -- Moveline plugin settings
-local moveline = require('moveline')
+--[[ local moveline = require('moveline')
 vim.keymap.set('n', '<M-k>', moveline.up)
 vim.keymap.set('n', '<M-j>', moveline.down)
 vim.keymap.set('v', '<M-k>', moveline.block_up)
 vim.keymap.set('v', '<M-j>', moveline.block_down)
+ ]]
+-- Move line plugin settings MACOS
+local opts = { noremap = true, silent = true }
+-- Normal-mode commands
+vim.keymap.set('n', '<M-Down>', ':MoveLine(1)<CR>', opts)
+vim.keymap.set('n', '<M-Up>', ':MoveLine(-1)<CR>', opts)
+vim.keymap.set('n', '<M-Left>', ':MoveHChar(-1)<CR>', opts)
+vim.keymap.set('n', '<M-Right>', ':MoveHChar(1)<CR>', opts)
+
+-- Visual-mode commands
+vim.keymap.set('v', '<M-down>', ':MoveBlock(1)<CR>', opts)
+vim.keymap.set('v', '<M-up>', ':MoveBlock(-1)<CR>', opts)
+vim.keymap.set('v', '<M-Left>', ':MoveHBlock(-1)<CR>', opts)
+vim.keymap.set('v', '<M-Right>', ':MoveHBlock(1)<CR>', opts)
+-- End moveline MACOS
+
 
 -- NvimTree Toggle
 local function toggleNvimTree()
