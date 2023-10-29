@@ -125,7 +125,7 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'onedark',
         component_separators = '|',
         section_separators = '',
@@ -361,6 +361,18 @@ require('nvim-treesitter.configs').setup {
       },
     },
   },
+
+  --
+  -- Custom config for autotag
+  --
+  --
+  autotag = {
+    enable = true,
+    enable_rename = true,
+    enable_close = true,
+    enable_close_on_slash = true,
+    -- filetypes = { "html", "xml" },
+  },
 }
 
 -- Diagnostic keymaps
@@ -542,6 +554,9 @@ local function toggleNvimTree()
   })
 end
 vim.keymap.set('n', '<C-k><C-k>', toggleNvimTree)
+--
+-- TS autotag
+-- require('nvim-ts-autotag').setup()
 --
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
