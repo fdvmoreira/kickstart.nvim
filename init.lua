@@ -538,6 +538,8 @@ vim.keymap.set('n', '<M-Down>', ':MoveLine(1)<CR>', opts)
 vim.keymap.set('n', '<M-Up>', ':MoveLine(-1)<CR>', opts)
 vim.keymap.set('n', '<M-Left>', ':MoveHChar(-1)<CR>', opts)
 vim.keymap.set('n', '<M-Right>', ':MoveHChar(1)<CR>', opts)
+vim.keymap.set('n', '<leader>wf', ':MoveWord(1)<CR>', opts)
+vim.keymap.set('n', '<leader>wb', ':MoveWord(-1)<CR>', opts)
 
 -- Visual-mode commands
 vim.keymap.set('v', '<M-down>', ':MoveBlock(1)<CR>', opts)
@@ -545,8 +547,7 @@ vim.keymap.set('v', '<M-up>', ':MoveBlock(-1)<CR>', opts)
 vim.keymap.set('v', '<M-Left>', ':MoveHBlock(-1)<CR>', opts)
 vim.keymap.set('v', '<M-Right>', ':MoveHBlock(1)<CR>', opts)
 -- End moveline MACOS
-
-
+--
 -- NvimTree Toggle
 local function toggleNvimTree()
   require('nvim-tree.api').tree.toggle({
