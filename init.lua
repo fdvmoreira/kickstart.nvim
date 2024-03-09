@@ -436,7 +436,21 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  -- html-lsp
+  html = {
+    html = {
+      mirrorCursorOnMatchingTag = true
+    }
+  },
+
+  tsserver = {
+    javascript = {
+      format = { simicolons = "insert" }
+    },
+    typescript = {
+      format = { simicolons = "insert" }
+    }
+  },
 
   lua_ls = {
     Lua = {
