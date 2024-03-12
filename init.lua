@@ -458,6 +458,17 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+  yamlls = {
+    yaml = {
+      format = { enable = true },
+      validate = true,
+      completion = true,
+      schemas = {
+        -- OpenAPI schema
+        ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.yaml'] = '*.openapi.yaml',
+      }
+    },
+  },
 }
 
 -- Setup neovim lua configuration
